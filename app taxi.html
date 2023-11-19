@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolatore</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input {
+            padding: 5px;
+            margin-bottom: 15px;
+        }
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Calcolatore</h2>
+
+    <label for="km">Inserisci il valore di km:</label>
+    <input type="number" id="km">
+
+    <label for="z">Inserisci il valore di z:</label>
+    <input type="number" id="z">
+
+    <button onclick="calcolaFormula()">Calcola</button>
+
+    <h3>Risultato:</h3>
+    <div id="result"></div>
+
+    <script>
+        function calcolaFormula() {
+            var kmValue = parseFloat(document.getElementById('km').value);
+            var zValue = parseFloat(document.getElementById('z').value);
+
+            if (!isNaN(kmValue) && !isNaN(zValue)) {
+                var result = 6 + (kmValue * 1.20) - zValue;
+                document.getElementById('result').innerHTML = "Il risultato è: " + result;
+            } else {
+                document.getElementById('result').innerHTML = "Inserisci valori validi per km e z.";
+            }
+        }
+    </script>
+
+</body>
+</html>
